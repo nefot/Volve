@@ -83,6 +83,7 @@ public class LevelGenerator : MonoBehaviour
                 )
             );
     }
+
     void FixedUpdate()
     {
         if(target.position.x >= NewPointPosition.x - levelWidth)

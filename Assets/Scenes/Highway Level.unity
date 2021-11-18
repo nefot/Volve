@@ -247,10 +247,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 2048136630}
-  levelHeight: 6
+  levelHeight: 8
   levelWidth: 20
-  xRange: 5
-  yRange: 2
+  xRange: 10
+  yRange: 5
   tangentRange: 1
   spriteShapeController: {fileID: 270419544}
 --- !u!114 &270419544
@@ -308,7 +308,7 @@ MonoBehaviour:
       spriteIndex: 0
       corner: 1
       m_CornerMode: 1
-  m_SpriteShape: {fileID: 11400000, guid: fe6f4d7dbaa6d0041be33353d06028d8, type: 2}
+  m_SpriteShape: {fileID: 11400000, guid: f3a6cd212af603b4fbb59034d414a504, type: 2}
   m_FillPixelPerUnit: 100
   m_StretchTiling: 1
   m_SplineDetail: 16
@@ -368,12 +368,12 @@ SpriteShapeRenderer:
   m_SortingOrder: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_MaskInteraction: 0
-  m_ShapeTexture: {fileID: 2800000, guid: 529640890eac6ed4993279150a7c4db6, type: 3}
+  m_ShapeTexture: {fileID: 2800000, guid: 74e04683e8f4eb14b8958f4d71315f68, type: 3}
   m_Sprites:
-  - {fileID: 21300000, guid: b2e7eec0a469c7041bb108379a50f061, type: 3}
+  - {fileID: 21300000, guid: 6c30031d19f625b4ab119eddfdf930b2, type: 3}
   m_LocalAABB:
-    m_Center: {x: 5.464334, y: -6.264464, z: 0}
-    m_Extent: {x: 12.437909, y: 7.2044578, z: 0}
+    m_Center: {x: 5.4639616, y: -6.225219, z: 0}
+    m_Extent: {x: 12.517523, y: 7.2451773, z: 0}
 --- !u!4 &270419546
 Transform:
   m_ObjectHideFlags: 0
@@ -398,20 +398,21 @@ EdgeCollider2D:
   m_GameObject: {fileID: 270419542}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 4ac318a16a089bf4aa80878030f434b2, type: 2}
+  m_Material: {fileID: 6200000, guid: 9ef12631c4e713042ab1d3bb1cc863c4, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: -6.8926287, y: -13.467465}
-  - {x: -6.6286297, y: 0.8600116}
-  - {x: 16.012777, y: 0.18587619}
-  - {x: 17.82205, y: -12.874464}
+  - {x: -6.891669, y: -13.467484}
+  - {x: -6.6276693, y: 0.8599939}
+  - {x: -0.75939554, y: 0.6835784}
+  - {x: 16.012747, y: 0.18491662}
+  - {x: 17.821096, y: -12.874596}
   - {x: -5.692546, y: -13.438627}
   - {x: -6.578681, y: -13.459891}
-  - {x: -6.8926287, y: -13.467465}
+  - {x: -6.891669, y: -13.467484}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -1367,11 +1368,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2530043575920626541, guid: 12d2e1702003a98409c2bf59e6b0fefe, type: 3}
       propertyPath: level
-      value: 0
+      value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 2530043575920626541, guid: 12d2e1702003a98409c2bf59e6b0fefe, type: 3}
+      propertyPath: wheelMaterial
+      value: 
+      objectReference: {fileID: 6200000, guid: d2f4652cd04e12f4e97a82da6ecb69af, type: 2}
     - target: {fileID: 2530043575920626542, guid: 12d2e1702003a98409c2bf59e6b0fefe, type: 3}
       propertyPath: m_Mass
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2530043576842865274, guid: 12d2e1702003a98409c2bf59e6b0fefe, type: 3}
+      propertyPath: m_Material
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12d2e1702003a98409c2bf59e6b0fefe, type: 3}

@@ -13,11 +13,20 @@ public class CarMoving : MonoBehaviour
     public float carRotationSpeed = 10f;
     public float maxCarRotationSpeed = 100f;
     public float maxMotorTorque;
+    [Range(0, 10)]
+    public int level;
+    public float max_add_speed = 250f;
+    public PhysicsMaterial2D wheelMaterial;
+    public float start_friction = 1f;
+    public float max_add_friction = 2f;
 
     private void Awake()
     {
         movement = 0f;
         motor = new JointMotor2D();
+
+        wheelMaterial.friction = start_friction + (max_add_friction * level / 10f);
+        speed += (max_add_speed * level / 10f);
     }
     void Start()
     {

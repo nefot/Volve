@@ -13,7 +13,7 @@ public class MeterAdd : MonoBehaviour
 
     void Start()
     {
-        lastXVal = transform.position.x;
+        lastXVal = GameObject.FindGameObjectWithTag("Player").transform.position.x;
     }
 
   
@@ -22,7 +22,7 @@ public class MeterAdd : MonoBehaviour
         if (transform.position.x > lastXVal)
         {
             meters.text = ((((int)Mathf.Abs(current + lastXVal)).ToString())+" m");
-            lastXVal = transform.position.x;
+            lastXVal = GameObject.FindGameObjectWithTag("Player").transform.position.x;
         }
     }
 }

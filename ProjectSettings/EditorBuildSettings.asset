@@ -5,7 +5,22 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/SampleScene.unity
+    guid: 0468f5161ae8b304194456a92763b901
+  - enabled: 1
+    path: Assets/Scenes/Moon Level.unity
+    guid: e1f844127fc2e8b46bb6cc85999f5eb1
+  - enabled: 1
+    path: Assets/Scenes/Highway Level.unity
+    guid: 11810432c505f294d8e9b187ef4ed186
   - enabled: 1
     path: Assets/Scenes/Countryside Level.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    guid: f83819ba0e10f93409d59f1ec11b46f3
+  - enabled: 1
+    path: Assets/Scenes/Alien Planet.unity
+    guid: 67fe72f4bac343a4194b00981caf0988
   m_configObjects: {}

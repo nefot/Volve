@@ -6,8 +6,8 @@ using UnityEngine.U2D;
 public class LevelGenerator : MonoBehaviour
 {
     private Spline spline;
-    public Vector3 NewPointPosition { get; private set; }
-    public static int CurrentPointIndex { get; private set; }
+    public Vector3 NewPointPosition { get; set; }
+    public static int CurrentPointIndex { get; set; }
     public Transform target;
     public int levelHeight;
     public float levelWidth;
@@ -15,27 +15,62 @@ public class LevelGenerator : MonoBehaviour
     public float yRange;
     public float tangentRange;
     public SpriteShapeController spriteShapeController;
-    void Awake()
+    private void Awake()
     {
         spline = spriteShapeController.spline;
         NewPointPosition = spline.GetPosition(1);
         CurrentPointIndex = 2;
     }
-
-    void Start()
+    private void Start()
     {
+        LevelInit();
+    }
+    private void FixedUpdate()
+    {
+        if (target.position.x >= NewPointPosition.x - levelWidth)
+        {
+            Generate();
+            Delete();
+        }
+    }
+    public void LevelInit()
+    {
+        while (target.position.x >= NewPointPosition.x - levelWidth)
+        {
+            Generate();
+        }
         target = GameObject.FindGameObjectWithTag("Player").transform;
     }
-    public void Generate()
+    private void Generate()
     {
+        NewPointPosition = spline.GetPosition(spline.GetPointCount() - 3);
         NewPointPosition = new Vector3
-            (
-                Random.Range(NewPointPosition.x + xRange / 2, NewPointPosition.x + xRange),
-                Mathf.Clamp(Random.Range(NewPointPosition.y - yRange, NewPointPosition.y + yRange), -levelHeight / 2, levelHeight / 2),
-                NewPointPosition.z
-            );
+        (
+            Random.Range(NewPointPosition.x + xRange / 2, NewPointPosition.x + xRange),
+            Mathf.Clamp(Random.Range(NewPointPosition.y - yRange, NewPointPosition.y + yRange), -levelHeight / 2, levelHeight / 2),
+            NewPointPosition.z
+        );
 
-        spline.InsertPointAt(CurrentPointIndex, NewPointPosition);
+        InsertNewPoint(CurrentPointIndex);
+
+        CurrentPointIndex++;
+
+        int lastPointIndex = spline.GetPointCount() - 1;
+        float NewCornerXPos = NewPointPosition.x + levelWidth;
+        MoveCorner(lastPointIndex, NewCornerXPos);
+        MoveCorner(lastPointIndex - 1, NewCornerXPos);
+    }
+    private void Delete()
+    {
+        float NewCornerX = spline.GetPosition(2).x;
+        spline.RemovePointAt(2);
+        MoveCorner(0, NewCornerX);
+        MoveCorner(1, NewCornerX);
+        CurrentPointIndex--;
+    }
+    private void InsertNewPoint(int PointIndex)
+    {
+        spline.InsertPointAt(PointIndex, NewPointPosition);
 
         float tengentDeltaY = Random.Range(0, tangentRange);
 
@@ -53,42 +88,23 @@ public class LevelGenerator : MonoBehaviour
             NewPointPosition.z
             );
 
-        spline.SetTangentMode(CurrentPointIndex, ShapeTangentMode.Continuous);
-        spline.SetLeftTangent(CurrentPointIndex, leftTangent);
-        spline.SetRightTangent(CurrentPointIndex, rightTangent);
+        spline.SetTangentMode(PointIndex, ShapeTangentMode.Continuous);
+        spline.SetLeftTangent(PointIndex, leftTangent);
+        spline.SetRightTangent(PointIndex, rightTangent);
 
-        CurrentPointIndex++;
-
-        int lastPointIndex = spline.GetPointCount() - 1;
-
-        spline.SetPosition
-            (
-            lastPointIndex - 1, 
-            new Vector3
-            (
-                NewPointPosition.x + levelWidth, 
-                spline.GetPosition(lastPointIndex - 1).y,
-                spline.GetPosition(lastPointIndex - 1).z
-                )
-            );
-
-        spline.SetPosition
-            (
-            lastPointIndex, 
-            new Vector3
-            (
-                NewPointPosition.x + levelWidth,
-                spline.GetPosition(lastPointIndex).y,
-                spline.GetPosition(lastPointIndex).z
-                )
-            );
+        PointIndex++;
     }
-
-    void FixedUpdate()
+    private void MoveCorner(int CornerIndex, float NewCornerXPos)
     {
-        if(target.position.x >= NewPointPosition.x - levelWidth)
-        {
-            Generate();
-        }
+        spline.SetPosition
+        (
+            CornerIndex,
+            new Vector3
+            (
+                NewCornerXPos,
+                spline.GetPosition(CornerIndex).y,
+                spline.GetPosition(CornerIndex).z
+            )
+        );
     }
 }

@@ -8,7 +8,7 @@ public class CarMoving : MonoBehaviour
     private float movement;
     private JointMotor2D motor;
     private WheelJoint2D[] wheels;
-    public Rigidbody2D car;
+    private Rigidbody2D car;
     public float speed = 1500f;
     public float carRotationSpeed = 10f;
     public float maxCarRotationSpeed = 100f;
@@ -28,11 +28,10 @@ public class CarMoving : MonoBehaviour
         motor = new JointMotor2D();
         wheelMaterial.friction = start_friction + (max_add_friction * level / 10f);
         speed += (max_add_speed * level / 10f);
-        
-       
     }
     void Start()
     {
+        car = GetComponent<Rigidbody2D>();
         fuel = GameObject.FindGameObjectWithTag("GameController").GetComponent<FuelBar>().Fuel;
         motor.maxMotorTorque = maxMotorTorque;
         wheels = car.GetComponents<WheelJoint2D>();

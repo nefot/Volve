@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 4251633790498921892}
   - component: {fileID: 4251633790498921915}
   - component: {fileID: 4251633790498921890}
-  - component: {fileID: 4251633790498921891}
   - component: {fileID: 6563794284374481297}
   m_Layer: 5
   m_Name: Canvas
@@ -125,18 +124,6 @@ MonoBehaviour:
   fuelBarLevel: {fileID: 4251633790666605384}
   Fuel: 1
   fuelBar: {fileID: 4251633790666605386}
---- !u!114 &4251633790498921891
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4251633790498921914}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7d5fceb23e56f44db69386a2555da80, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &6563794284374481297
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -636,7 +623,7 @@ GameObject:
   - component: {fileID: 4251633792294049339}
   m_Layer: 5
   m_Name: Coins
-  m_TagString: Untagged
+  m_TagString: Coins
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -714,9 +701,10 @@ GameObject:
   - component: {fileID: 4251633792480029627}
   - component: {fileID: 4251633792480029605}
   - component: {fileID: 4251633792480029604}
+  - component: {fileID: 4946800488780587399}
   m_Layer: 5
   m_Name: Meters
-  m_TagString: Untagged
+  m_TagString: Meters
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -783,6 +771,20 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 0 m
+--- !u!114 &4946800488780587399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4251633792480029626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f227b805f4e5b74a972f48bef189f88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  text: {fileID: 0}
 --- !u!1 &4251633792486676043
 GameObject:
   m_ObjectHideFlags: 0

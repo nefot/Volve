@@ -13,8 +13,6 @@ public class HUDController : MonoBehaviour
        player1 = GameObject.FindGameObjectWithTag("Player");
        scr= player1.GetComponent<CarMoving>();
     }
-
-    // Update is called once per frame
     void Update()
     {
         arrow.rotation = Quaternion.Euler(arrow.rotation.x, arrow.rotation.y, ConvertRange(-255,((int)(scr.speed)),0,255,1));

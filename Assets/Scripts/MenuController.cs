@@ -6,9 +6,13 @@ using UnityEngine.SceneManagement;
 public class MenuController : MonoBehaviour
 {
     public int number_scene = 2;
-   public void PlayGame(int number_scene1)
+   public void PlayGame()
     {
-        number_scene1 = number_scene;
-        SceneManager.LoadScene(number_scene1);
+        
+        SceneManager.LoadScene(number_scene);
+    }
+    public void SelectScene(int num)
+    {
+        number_scene = num;
     }
 }

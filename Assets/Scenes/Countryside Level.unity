@@ -140,7 +140,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4809077174104285005, guid: 0c546a9a37b410e48bfb27c397e1e576, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4809077174104285005, guid: 0c546a9a37b410e48bfb27c397e1e576, type: 3}
       propertyPath: m_LocalPosition.x
@@ -357,7 +357,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!68 &270419547
 EdgeCollider2D:
@@ -483,7 +483,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &519420033
 MonoBehaviour:
@@ -535,7 +535,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4251633790498921894, guid: ea315ba24fba4e444ac88445cf266d05, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4251633790498921894, guid: ea315ba24fba4e444ac88445cf266d05, type: 3}
       propertyPath: m_AnchorMax.x
@@ -633,6 +633,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7d5fceb23e56f44db69386a2555da80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerData: {fileID: 0}
+--- !u!114 &1555685891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1555685889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b278d636fbdf5ec4caef535d7ec18251, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerDB:
+    maxScore: 0
+    coins: 0
 --- !u!4 &1687346222 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4809077174104285005, guid: 0c546a9a37b410e48bfb27c397e1e576, type: 3}
@@ -691,7 +707,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1735975144
 MonoBehaviour:

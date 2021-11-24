@@ -5,45 +5,44 @@ using System.IO;
 using System.Text;
 using UnityEngine;
 
-[System.Serializable]
+[Serializable]
 public struct Upgrades
 {
-    int engine { get; set; }
-    int suspension { get; set; }
-    int brake { get; set; }
+    int engine;
+    int suspension;
+    int brake;
     public override string ToString()
     {
         return engine.ToString() + " " + suspension.ToString() + " " + brake.ToString();
     }
 }
 
-[System.Serializable]
+[Serializable]
 public class PlayerDB
 {
-    public static float maxScore { get; set; }
-    public static int coins { get; set; }
-    public static Upgrades upgrades;
+    public float maxScore;
+    public int coins;
+    public Upgrades upgrades = new Upgrades();
 }
 public class SavePlayerData : MonoBehaviour
 {
     public static PlayerDB playerDB;
-    private static string path = Application.streamingAssetsPath + @"/playerDB.json";
+    private static string path;
     private void Awake()
     {
-        string jsonString;
+        path = Application.streamingAssetsPath + @"/playerDB.json";
 
         if (!File.Exists(path))
         {
             File.Create(path);
         }
-
-        jsonString = File.ReadAllText(path);
-        playerDB = JsonUtility.FromJson<PlayerDB>(jsonString);
+        var jsonString = File.ReadAllText(path);
+        playerDB = JsonUtility.FromJson<PlayerDB>(jsonString) ?? new PlayerDB();
     }
     public static void Save()
     {
-        var jsonString = JsonUtility.ToJson(playerDB);
-        Debug.Log(jsonString);
+        string jsonString = JsonUtility.ToJson(playerDB);
+        Debug.Log(JsonUtility.ToJson(playerDB));
         Debug.Log(path);
         using (FileStream fs = File.OpenWrite(path))
         {

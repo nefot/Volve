@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Meters
   - Coins
+  - Player Data
   layers:
   - Default
   - TransparentFX
